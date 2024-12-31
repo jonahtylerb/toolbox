@@ -1,6 +1,5 @@
 import { expect } from 'chai';
 import { PropsWithType } from '../../src/index';
-import { isUndefined } from 'util';
 
 describe('PropsWithType', () => {
 
@@ -39,7 +38,7 @@ describe('PropsWithType', () => {
          // note that `from[field]` is `number | undefined`.
          const val = from[field];
 
-         return isUndefined(val) ? 0 : val;
+         return val ?? 0;
       }
 
       let obj: TestType = { prop: 'test', anotherProp: 1, additionalProp: 2 };
